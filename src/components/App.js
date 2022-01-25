@@ -1,18 +1,56 @@
-import '../styles/App.scss';
-//import { useEffect, useState } from 'react';
-//import callToApi from '../services/api';
-//import ls from '../services/localstorage';
-//import { v4 as uuid } from 'uuid';
-//import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
-//import PropTypes from 'prop-types';
-//console.log(uuid());
+import "../styles/App.scss";
+import { useEffect, useState } from "react";
+import getWizardData from "../services/getWizardData";
+import Filters from "./Filters";
+import CharacterList from "./CharacterList";
+//import CharacterDetail from "./CharacterDetail";
+//import ls from '../services/ls';
+//import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 
 function App() {
-
   
-  return ( 
+  //VARIABLES
+  const [wizards, setWizards] = useState([]);
+  const [filterName, setFilterName] = useState("");
+  const [filterHouse, setFilterHouse] = useState("Gryffindor");
 
-    <div className="app"></div>
+  //SERVICES
+  useEffect(() => {
+    getWizardData().then((data) => setWizards(data));
+  }, []);
+
+  //HANDLE
+  const handleFilter = (data) => {
+    if (data.key === "name") {
+      setFilterName(data.value);
+    } else if (data.key === "house") {
+      setFilterHouse(data.value);
+    }
+  };
+
+  //FILTERS
+  const filteredWizards = wizards
+    .filter((wizard) => {
+      return wizard.name
+        .toLocaleLowerCase()
+        .includes(filterName.toLocaleLowerCase());
+    })
+    .filter((wizard) => wizard.house === filterHouse);
+
+  return (
+    <div className="app">
+      <header>
+        <h1>Bienvenida a Hogwarts</h1>
+      </header>
+      <main>
+        <Filters
+          handleFilter={handleFilter}
+          filterName={filterName}
+          filterHouse={filterHouse}
+        />
+        <CharacterList wizards={filteredWizards} />
+      </main>
+    </div>
   );
 }
 
