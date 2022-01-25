@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 const CharacterCard = (props) => {
   const getSpecies = () => {
@@ -40,7 +40,8 @@ const CharacterCard = (props) => {
     }
   };
   return (
-    <>
+    <section>
+    <Link to={`/character/${props.wizard.id}`}>
       <img
         className="img"
         src={
@@ -52,7 +53,8 @@ const CharacterCard = (props) => {
       />
       <h3>{props.wizard.name}</h3>
       <h4>{getSpecies()}</h4>
-    </>
+    </Link>
+</section>
   );
 };
 export default CharacterCard;
