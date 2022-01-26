@@ -4,19 +4,30 @@ import getWizardData from "../services/getWizardData";
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
-//import ls from '../services/ls';
-import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
+import ls from '../services/ls';
+import { Route, Switch} from "react-router-dom";
 
 function App() {
   //VARIABLES
-  const [wizards, setWizards] = useState([]);
-  const [filterName, setFilterName] = useState("");
-  const [filterHouse, setFilterHouse] = useState("Gryffindor");
+  const [wizards, setWizards] = useState(ls.get('wizards', []));
+  const [filterName, setFilterName] = useState(ls.get('filterName', ''));
+  const [filterHouse, setFilterHouse] = useState(ls.get('filterHouse', 'Gryffindor'));
 
   //SERVICES
+  
   useEffect(() => {
-    getWizardData().then((data) => setWizards(data));
+    if (wizards.length === 0) {
+      getWizardData().then((data) => {
+        setWizards(data);
+      });
+    }
   }, []);
+
+  useEffect(() => {
+    ls.set('wizards', wizards);
+    ls.set('filterName', filterName);
+    ls.set('filterHouse', filterHouse);
+  }, [wizards, filterName, filterHouse]);
 
   //HANDLE
   const handleFilter = (data) => {
@@ -70,8 +81,7 @@ function App() {
             />
             {searchResults()}
           </Route>
-          <Route path="/character/:wizardId" render={renderDetail} />
-          <CharacterDetail />
+          <Route path="/character/:wizardId" render={renderDetail}/>
         </Switch>
       </main>
     </div>

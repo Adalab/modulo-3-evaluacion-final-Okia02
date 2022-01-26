@@ -1,13 +1,29 @@
 const get = (key, defaultData) => {
-  const data = JSON.parse(localStorage.getItem(key));
-  return data === null ? defaultData : data;
+  const data = localStorage.getItem(key);
+  if (data === null) {
+    return defaultData;
+  } else {
+    return JSON.parse(data);
+  }
 };
 
-const set = (key, data) => {
-  localStorage.setItem(key, JSON.stringify(data));
+const set = (key, value) => {
+  localStorage.setItem(key, JSON.stringify(value));
 };
 
-export default {
+const remove = (key) => {
+  localStorage.removeItem(key);
+};
+
+const clear = () => {
+  localStorage.clear();
+};
+
+const objectToExport = {
   get: get,
-  set: set
+  set: set,
+  remove: remove,
+  clear: clear,
 };
+
+export default objectToExport;
