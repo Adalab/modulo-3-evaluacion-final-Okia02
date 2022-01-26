@@ -4,17 +4,19 @@ import getWizardData from "../services/getWizardData";
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
-import ls from '../services/ls';
-import { Route, Switch} from "react-router-dom";
+import ls from "../services/ls";
+import { Route, Switch } from "react-router-dom";
 
 function App() {
   //VARIABLES
-  const [wizards, setWizards] = useState(ls.get('wizards', []));
-  const [filterName, setFilterName] = useState(ls.get('filterName', ''));
-  const [filterHouse, setFilterHouse] = useState(ls.get('filterHouse', 'Gryffindor'));
+  const [wizards, setWizards] = useState(ls.get("wizards", []));
+  const [filterName, setFilterName] = useState(ls.get("filterName", ""));
+  const [filterHouse, setFilterHouse] = useState(
+    ls.get("filterHouse", "Gryffindor")
+  );
 
   //SERVICES
-  
+
   useEffect(() => {
     if (wizards.length === 0) {
       getWizardData().then((data) => {
@@ -24,9 +26,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    ls.set('wizards', wizards);
-    ls.set('filterName', filterName);
-    ls.set('filterHouse', filterHouse);
+    ls.set("wizards", wizards);
+    ls.set("filterName", filterName);
+    ls.set("filterHouse", filterHouse);
   }, [wizards, filterName, filterHouse]);
 
   //HANDLE
@@ -44,6 +46,7 @@ function App() {
 
   //FILTERS
   const filteredWizards = wizards
+    .sort((a, b) => a.name.localeCompare(b.name))
     .filter((wizard) => {
       return wizard.name
         .toLocaleLowerCase()
@@ -81,7 +84,7 @@ function App() {
             />
             {searchResults()}
           </Route>
-          <Route path="/character/:wizardId" render={renderDetail}/>
+          <Route path="/character/:wizardId" render={renderDetail} />
         </Switch>
       </main>
     </div>
