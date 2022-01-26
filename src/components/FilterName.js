@@ -7,8 +7,8 @@ const FilterName = (props) => {
   };
 
   return (
-    <>
-      <label htmlFor="name">Buscar por personaje:</label>
+    <fieldset>
+      <label htmlFor="name">Personaje:</label>
       <input
         type="search"
         name="name"
@@ -16,7 +16,7 @@ const FilterName = (props) => {
         value={props.filterName}
         onChange={handleInput}
       />
-    </>
+    </fieldset>
   );
 };
 export default FilterName;

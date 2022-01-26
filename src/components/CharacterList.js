@@ -9,9 +9,9 @@ const CharacterList = (props) => {
     );
   });
   return (
-    <>
+    <section>
       <ul>{listItems}</ul>
-    </>
+    </section>
   );
 };
 export default CharacterList;

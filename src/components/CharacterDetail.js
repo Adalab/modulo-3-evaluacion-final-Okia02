@@ -241,7 +241,7 @@ const CharacterDetail = (props) => {
   };
 
   return (
-    <>
+    <article>
       <Link to="/">
         <FontAwesomeIcon icon={faChevronLeft} /> Volver
       </Link>
@@ -263,7 +263,7 @@ const CharacterDetail = (props) => {
         {getHouse()}
         {getAncestry()}
       </ul>
-    </>
+    </article>
   );
 };
 export default CharacterDetail;

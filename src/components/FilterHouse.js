@@ -6,8 +6,8 @@ const FilterHouse = (props) => {
     });
   };
   return (
-    <>
-      <label htmlFor="house">Selecciona la casa:</label>
+    <fieldset>
+      <label htmlFor="house">Casa:</label>
       <select
         name="house"
         id="house"
@@ -19,7 +19,7 @@ const FilterHouse = (props) => {
         <option value="Ravenclaw">Ravenclaw</option>
         <option value="Hufflepuff">Hufflepuff </option>
       </select>
-    </>
+    </fieldset>
   );
 };
 export default FilterHouse;

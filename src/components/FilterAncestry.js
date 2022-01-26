@@ -6,7 +6,7 @@ const FilterAncestry = (props) => {
     });
   };
   return (
-    <>
+    <fieldset>
       <label htmlFor="ancestry">Ascendencia:</label>
       <select
         name="ancestry"
@@ -19,7 +19,7 @@ const FilterAncestry = (props) => {
         <option value="half-blood">Mestizo/a</option>
         <option value="muggleborn">Padres muggle</option>
       </select>
-    </>
+    </fieldset>
   );
 };
 export default FilterAncestry;

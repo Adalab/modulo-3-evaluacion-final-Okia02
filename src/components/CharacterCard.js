@@ -49,21 +49,22 @@ const CharacterCard = (props) => {
     }
   };
   return (
-    <section>
-      <Link to={`/character/${props.wizard.id}`}>
-        <img
-          className="img"
-          src={
-            props.wizard.image ||
-            "https://data.whicdn.com/images/296298377/original.png"
-          }
-          alt={`Foto de ${props.wizard.name}`}
-          title={`Foto de ${props.wizard.name}`}
-        />
-        <h3>{props.wizard.name}</h3>
-        <p>{getSpecies()} || {getAncestry.length !== 0 ? getAncestry() : 'Sin ascendencia'}</p>
-      </Link>
-    </section>
+    <Link to={`/character/${props.wizard.id}`}>
+      <img
+        className="img"
+        src={
+          props.wizard.image ||
+          "https://data.whicdn.com/images/296298377/original.png"
+        }
+        alt={`Foto de ${props.wizard.name}`}
+        title={`Foto de ${props.wizard.name}`}
+      />
+      <h3>{props.wizard.name}</h3>
+      <p>
+        {getSpecies()} ||{" "}
+        {getAncestry.length !== 0 ? getAncestry() : "Sin ascendencia"}
+      </p>
+    </Link>
   );
 };
 export default CharacterCard;

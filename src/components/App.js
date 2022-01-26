@@ -6,18 +6,19 @@ import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
 import ls from "../services/ls";
 import { Route, Switch } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
+import ResetBtn from "./ResetBtn";
 
 function App() {
-  //VARIABLES
   const [wizards, setWizards] = useState(ls.get("wizards", []));
   const [filterName, setFilterName] = useState(ls.get("filterName", ""));
   const [filterHouse, setFilterHouse] = useState(
     ls.get("filterHouse", "Gryffindor")
   );
-  const [filterAncestry, setFilterAncestry] = useState(ls.get('filterAncestry', ''));
-
-  //SERVICES
-
+  const [filterAncestry, setFilterAncestry] = useState(
+    ls.get("filterAncestry", "")
+  );
   useEffect(() => {
     if (wizards.length === 0) {
       getWizardData().then((data) => {
@@ -25,15 +26,12 @@ function App() {
       });
     }
   }, []);
-
   useEffect(() => {
     ls.set("wizards", wizards);
     ls.set("filterName", filterName);
     ls.set("filterHouse", filterHouse);
     ls.set("filterAncestry", filterAncestry);
   }, [wizards, filterName, filterHouse, filterAncestry]);
-
-  //HANDLE
   const handleFilter = (data) => {
     if (data.key === "name") {
       setFilterName(data.value);
@@ -43,13 +41,9 @@ function App() {
       setFilterAncestry(data.value);
     }
   };
-
-
   const handleSubmit = (ev) => {
     ev.preventDefault();
   };
-
-  //FILTERS
   const filteredWizards = wizards
     .sort((a, b) => a.name.localeCompare(b.name))
     .filter((wizard) => {
@@ -58,31 +52,34 @@ function App() {
         .includes(filterName.toLocaleLowerCase());
     })
     .filter((wizard) => wizard.house === filterHouse)
-    .filter((wizard) => {if (filterAncestry === '') {
-      return true;
-    } else {
-      return wizard.ancestry === filterAncestry;
-    }})
-
+    .filter((wizard) => {
+      if (filterAncestry === "") {
+        return true;
+      } else {
+        return wizard.ancestry === filterAncestry;
+      }
+    });
   const renderDetail = (props) => {
     const routeId = props.match.params.wizardId;
     const foundCharacter = wizards.find((wizard) => wizard.id === routeId);
     return <CharacterDetail wizard={foundCharacter} />;
   };
-
   const searchResults = () => {
     if (filterName !== "" && filteredWizards.length === 0) {
-      return <p>No hay coincidencias para {filterName}</p>;
+      return <p>No conocemos a {filterName} 😅</p>;
     } else {
       return <CharacterList wizards={filteredWizards} />;
     }
   };
-
+  const resetInputs = () => {
+    setFilterName("");
+    setFilterHouse("Gryffindor");
+    setFilterAncestry("");
+    
+  };
   return (
     <div className="app">
-      <header>
-        <h1>Bienvenida a Hogwarts</h1>
-      </header>
+      <Header />
       <main>
         <Switch>
           <Route path="/" exact>
@@ -92,12 +89,15 @@ function App() {
               filterName={filterName}
               filterHouse={filterHouse}
               filterAncestry={filterAncestry}
+              resetInputs={resetInputs}
             />
+
             {searchResults()}
           </Route>
           <Route path="/character/:wizardId" render={renderDetail} />
         </Switch>
       </main>
+      <Footer />
     </div>
   );
 }
