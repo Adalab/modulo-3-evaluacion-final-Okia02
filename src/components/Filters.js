@@ -1,5 +1,6 @@
 import FilterHouse from "./FilterHouse";
 import FilterName from "./FilterName";
+import FilterAncestry from "./FilterAncestry";
 
 const Filters = (props) => {
   return (
@@ -12,6 +13,10 @@ const Filters = (props) => {
         <FilterHouse
           handleFilter={props.handleFilter}
           filterHouse={props.filterHouse}
+        />
+        <FilterAncestry
+          handleFilter={props.handleFilter}
+          filterAncestry={props.filterAncestry}
         />
       </form>
     </>

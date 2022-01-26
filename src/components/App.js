@@ -14,6 +14,7 @@ function App() {
   const [filterHouse, setFilterHouse] = useState(
     ls.get("filterHouse", "Gryffindor")
   );
+  const [filterAncestry, setFilterAncestry] = useState(ls.get('filterAncestry', ''));
 
   //SERVICES
 
@@ -29,7 +30,8 @@ function App() {
     ls.set("wizards", wizards);
     ls.set("filterName", filterName);
     ls.set("filterHouse", filterHouse);
-  }, [wizards, filterName, filterHouse]);
+    ls.set("filterAncestry", filterAncestry);
+  }, [wizards, filterName, filterHouse, filterAncestry]);
 
   //HANDLE
   const handleFilter = (data) => {
@@ -37,8 +39,11 @@ function App() {
       setFilterName(data.value);
     } else if (data.key === "house") {
       setFilterHouse(data.value);
+    } else if (data.key === "ancestry") {
+      setFilterAncestry(data.value);
     }
   };
+
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
@@ -52,7 +57,12 @@ function App() {
         .toLocaleLowerCase()
         .includes(filterName.toLocaleLowerCase());
     })
-    .filter((wizard) => wizard.house === filterHouse);
+    .filter((wizard) => wizard.house === filterHouse)
+    .filter((wizard) => {if (filterAncestry === '') {
+      return true;
+    } else {
+      return wizard.ancestry === filterAncestry;
+    }})
 
   const renderDetail = (props) => {
     const routeId = props.match.params.wizardId;
@@ -81,6 +91,7 @@ function App() {
               handleFilter={handleFilter}
               filterName={filterName}
               filterHouse={filterHouse}
+              filterAncestry={filterAncestry}
             />
             {searchResults()}
           </Route>

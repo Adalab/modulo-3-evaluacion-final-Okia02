@@ -7,8 +7,34 @@ import { faVenus } from "@fortawesome/free-solid-svg-icons";
 import { faMars } from "@fortawesome/free-solid-svg-icons";
 import { faUserAltSlash } from "@fortawesome/free-solid-svg-icons";
 import { faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import { faHatWizard } from "@fortawesome/free-solid-svg-icons";
+import { faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
+import { faGlobeAmericas } from "@fortawesome/free-solid-svg-icons";
 
 const CharacterDetail = (props) => {
+  const getAncestry = () => {
+    if (props.wizard.ancestry === "pure-blood") {
+      return (
+        <li>
+          Ascendencia: Sangre pura <FontAwesomeIcon icon={faHatWizard} />
+        </li>
+      );
+    } else if (props.wizard.ancestry === "half-blood") {
+      return (
+        <li>
+          Ascendencia: Mestizaje <FontAwesomeIcon icon={faStarHalfAlt} />
+        </li>
+      );
+    } else if (props.wizard.ancestry === "muggleborn") {
+      return (
+        <li>
+          Ascendencia: Padres muggle <FontAwesomeIcon icon={faGlobeAmericas} />
+        </li>
+      );
+    } else if (props.wizard.ancestry === "") {
+      return "";
+    }
+  };
   const getSpecies = () => {
     return props.wizard.species === "human" ? (
       <li>
@@ -218,7 +244,7 @@ const CharacterDetail = (props) => {
     <>
       <Link to="/">
         <FontAwesomeIcon icon={faChevronLeft} /> Volver
-      </Link> 
+      </Link>
       <img
         className="img"
         src={
@@ -235,6 +261,7 @@ const CharacterDetail = (props) => {
         {getSpecies()}
         {getGender()}
         {getHouse()}
+        {getAncestry()}
       </ul>
     </>
   );
