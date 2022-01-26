@@ -15,6 +15,7 @@ const FilterName = (props) => {
         id="name"
         value={props.filterName}
         onChange={handleInput}
+        placeholder="Escribe aquí..."
       />
     </fieldset>
   );

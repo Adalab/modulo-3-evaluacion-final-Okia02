@@ -80,7 +80,7 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <main>
+      <main className="main">
         <Switch>
           <Route path="/" exact>
             <Filters

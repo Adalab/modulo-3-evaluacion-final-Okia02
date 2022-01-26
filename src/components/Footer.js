@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer>
+    <footer className="footer">
       <small>Promo-O / Módulo 3 REACT - Evaluación final - ©AnaJiménez</small>
     </footer>
   );

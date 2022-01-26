@@ -1,6 +1,6 @@
 const Header =() => {
-    return (<header>
-        <h1>Hogwarts</h1>
+    return (<header className="header">
+        <h1 className="header__title">Hogwarts</h1>
       </header>)
 }
 

@@ -62,7 +62,7 @@ const CharacterCard = (props) => {
       <h3>{props.wizard.name}</h3>
       <p>
         {getSpecies()} ||{" "}
-        {getAncestry.length !== 0 ? getAncestry() : "Sin ascendencia"}
+        {props.wizard.ancestry !== '' ? getAncestry() : "Sin ascendencia"}
       </p>
     </Link>
   );
