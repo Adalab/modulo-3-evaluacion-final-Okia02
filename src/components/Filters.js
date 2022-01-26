@@ -4,7 +4,7 @@ import FilterName from "./FilterName";
 const Filters = (props) => {
   return (
     <>
-      <form>
+      <form onSubmit={props.handleSubmit}>
         <FilterName
           handleFilter={props.handleFilter}
           filterName={props.filterName}

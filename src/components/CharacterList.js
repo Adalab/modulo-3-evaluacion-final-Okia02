@@ -1,9 +1,9 @@
 import CharacterCard from "./CharacterCard";
 
 const CharacterList = (props) => {
-  const listItems = props.wizards.map((wizard, index) => {
+  const listItems = props.wizards.map((wizard) => {
     return (
-      <li key={index}>
+      <li key={wizard.id}>
         <CharacterCard wizard={wizard} />
       </li>
     );

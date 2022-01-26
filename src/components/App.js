@@ -7,12 +7,7 @@ import CharacterDetail from "./CharacterDetail";
 //import ls from '../services/ls';
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 
-  
-
-
-
 function App() {
-
   //VARIABLES
   const [wizards, setWizards] = useState([]);
   const [filterName, setFilterName] = useState("");
@@ -32,6 +27,10 @@ function App() {
     }
   };
 
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+  };
+
   //FILTERS
   const filteredWizards = wizards
     .filter((wizard) => {
@@ -41,12 +40,20 @@ function App() {
     })
     .filter((wizard) => wizard.house === filterHouse);
 
-
   const renderDetail = (props) => {
     const routeId = props.match.params.wizardId;
-    const foundCharacter = wizards.find((wizard) => wizard.id === routeId)
-    return <CharacterDetail wizard={foundCharacter} />
-  }
+    const foundCharacter = wizards.find((wizard) => wizard.id === routeId);
+    return <CharacterDetail wizard={foundCharacter} />;
+  };
+
+  const searchResults = () => {
+    if (filterName !== "" && filteredWizards.length === 0) {
+      return <p>No hay coincidencias para {filterName}</p>;
+    } else {
+      return <CharacterList wizards={filteredWizards} />;
+    }
+  };
+
   return (
     <div className="app">
       <header>
@@ -54,16 +61,17 @@ function App() {
       </header>
       <main>
         <Switch>
-        <Route path="/" exact>
-        <Filters
-          handleFilter={handleFilter}
-          filterName={filterName}
-          filterHouse={filterHouse}
-        />
-        <CharacterList wizards={filteredWizards} />
-        </Route>
-        <Route path="/character/:wizardId" render={renderDetail} />
-        <CharacterDetail/>
+          <Route path="/" exact>
+            <Filters
+              handleSubmit={handleSubmit}
+              handleFilter={handleFilter}
+              filterName={filterName}
+              filterHouse={filterHouse}
+            />
+            {searchResults()}
+          </Route>
+          <Route path="/character/:wizardId" render={renderDetail} />
+          <CharacterDetail />
         </Switch>
       </main>
     </div>
