@@ -1,0 +1,17 @@
+.main {
+  .search-section {
+    &__title {
+      color: red;
+    }
+    &__form {
+     
+      .filterName{
+          background-color: antiquewhite; 
+          
+      }
+    }
+    &__resetbtn {
+      color: red;
+    }
+  }
+}

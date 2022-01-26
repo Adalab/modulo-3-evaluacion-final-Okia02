@@ -1,7 +1,8 @@
 .header {
-    font-family: $stFont;
-    font-size: 10em;
+    font-family: $altFont;
+    font-size: 15rem;
     color: $altColor;
     text-align: center;
     padding: 5%;
+    text-shadow: 4px 4px $stColor;
 }

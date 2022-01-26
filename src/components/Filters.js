@@ -5,9 +5,9 @@ import ResetBtn from "./ResetBtn";
 
 const Filters = (props) => {
   return (
-    <section>
-    <h2>Buscar por...</h2>
-      <form onSubmit={props.handleSubmit}>
+    <section className="search-section">
+      <h2 className="search-section__title">Buscar por...</h2>
+      <form className="search-section__form" onSubmit={props.handleSubmit}>
         <FilterName
           handleFilter={props.handleFilter}
           filterName={props.filterName}

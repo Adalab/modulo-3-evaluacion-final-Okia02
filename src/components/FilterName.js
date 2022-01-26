@@ -7,9 +7,10 @@ const FilterName = (props) => {
   };
 
   return (
-    <fieldset>
-      <label htmlFor="name">Personaje:</label>
+    <fieldset className="filterName">
+      <label className="filterName__label" htmlFor="name">Personaje:</label>
       <input
+      className=""
         type="search"
         name="name"
         id="name"

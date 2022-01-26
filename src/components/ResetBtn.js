@@ -1,9 +1,10 @@
+import "../styles/App.scss";
 function ResetBtn(props) {
     const handleResetBtn = (e) => {
       props.resetInputs();
     };
     return (
-      <button onClick={handleResetBtn}>
+      <button className="search-section__reset-btn" onClick={handleResetBtn}>
         Reset
       </button>
     );
