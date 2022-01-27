@@ -140,6 +140,7 @@
   }
   .list-section {
     background-color: $rdColor;
+    padding-bottom: 20px;
     &__list {
       background-color: $stColor;
       border-radius: 50px;
@@ -171,13 +172,14 @@
             text-align: center;
             margin-bottom: 5px;
             color: $rdColor;
-            background-color: $ndColor;
+            background-color: transparent;
           }
           &__species {
             font-family: $stFont;
             font-size: 1rem;
             color: $rdColor;
             background-color: transparent;
+            font-style: italic;
           }
           &__ancestry {
             font-family: $stFont;
@@ -185,6 +187,7 @@
             margin-bottom: 5px;
             color: $rdColor;
             background-color: transparent;
+            font-style: italic;
           }
         }
       }
