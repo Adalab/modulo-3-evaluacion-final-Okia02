@@ -1,9 +1,12 @@
 .header {
   font-family: $altFont;
-  font-size: 120px;
+  font-size: 12rem;
   color: $altColor;
   text-align: center;
-  padding: 5%;
+  padding: 3%;
   text-shadow: 4px 4px $stColor;
   background-color: $rdColor;
+  @media all and (max-width: 640px) {
+    font-size: 8rem;
+  }
 }

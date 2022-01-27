@@ -49,9 +49,9 @@ const CharacterCard = (props) => {
     }
   };
   return (
-    <Link to={`/character/${props.wizard.id}`}>
+    <Link to={`/character/${props.wizard.id}`} className="card-info">
       <img
-        className="img"
+        className="card-info__img"
         src={
           props.wizard.image ||
           "https://data.whicdn.com/images/296298377/original.png"
@@ -59,10 +59,10 @@ const CharacterCard = (props) => {
         alt={`Foto de ${props.wizard.name}`}
         title={`Foto de ${props.wizard.name}`}
       />
-      <h3>{props.wizard.name}</h3>
-      <p>
-        {getSpecies()} ||{" "}
-        {props.wizard.ancestry !== '' ? getAncestry() : "Sin ascendencia"}
+      <h3 className="card-info__title">{props.wizard.name}</h3>
+      <p className="card-info__species">
+        {getSpecies()} </p>
+        <p className="card-info__ancestry">{props.wizard.ancestry !== '' ? getAncestry() : "Sin ascendencia"}
       </p>
     </Link>
   );
