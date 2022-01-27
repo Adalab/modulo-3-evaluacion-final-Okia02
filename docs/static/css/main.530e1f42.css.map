@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/main.530e1f42.css","mappings":"AAAA,KACI,YAAa,CAChB,WAGG,wDADA,UACwB","sources":["styles/App.scss"],"sourcesContent":[".img {\n    height: 200px;\n}\n.img_house{\n    width: 30px;\n    transform: rotate(90deg);\n}"],"names":[],"sourceRoot":""}
