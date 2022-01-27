@@ -6,18 +6,29 @@ const FilterHouse = (props) => {
     });
   };
   return (
-    <fieldset>
-      <label htmlFor="house">Casa:</label>
+    <fieldset className="filterHouse">
+      <label className="filterHouse__label" htmlFor="house">
+        Casa:
+      </label>
       <select
+        className="filterHouse__select"
         name="house"
         id="house"
         onChange={handleChange}
         value={props.filterHouse}
       >
-        <option value="Gryffindor">Gryffindor</option>
-        <option value="Slytherin">Slytherin</option>
-        <option value="Ravenclaw">Ravenclaw</option>
-        <option value="Hufflepuff">Hufflepuff </option>
+        <option className="filterHouse__select--option" value="Gryffindor">
+          Gryffindor
+        </option>
+        <option className="filterHouse__select--option" value="Slytherin">
+          Slytherin
+        </option>
+        <option className="filterHouse__select--option" value="Ravenclaw">
+          Ravenclaw
+        </option>
+        <option className="filterHouse__select--option" value="Hufflepuff">
+          Hufflepuff{" "}
+        </option>
       </select>
     </fieldset>
   );

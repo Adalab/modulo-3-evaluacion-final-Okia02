@@ -20,8 +20,8 @@ const Filters = (props) => {
           handleFilter={props.handleFilter}
           filterAncestry={props.filterAncestry}
         />
+        <ResetBtn resetInputs={props.resetInputs} />
       </form>
-      <ResetBtn resetInputs={props.resetInputs} />
     </section>
   );
 };
