@@ -2,7 +2,6 @@ import FilterHouse from "./FilterHouse";
 import FilterName from "./FilterName";
 import FilterAncestry from "./FilterAncestry";
 import ResetBtn from "./ResetBtn";
-
 const Filters = (props) => {
   return (
     <section className="search-section">

@@ -1,5 +1,4 @@
 import CharacterCard from "./CharacterCard";
-
 const CharacterList = (props) => {
   const listItems = props.wizards.map((wizard) => {
     return (

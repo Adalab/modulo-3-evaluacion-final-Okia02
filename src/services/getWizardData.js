@@ -17,5 +17,4 @@ const getWizardData = () => {
       });
     });
 };
-
 export default getWizardData;

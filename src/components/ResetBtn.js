@@ -1,5 +1,5 @@
 import "../styles/App.scss";
-function ResetBtn(props) {
+const ResetBtn = (props) => {
   const handleResetBtn = (e) => {
     props.resetInputs();
   };
@@ -8,6 +8,5 @@ function ResetBtn(props) {
       Reset
     </button>
   );
-}
-
+};
 export default ResetBtn;

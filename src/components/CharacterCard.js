@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 const CharacterCard = (props) => {
   const getSpecies = () => {
     return props.wizard.species === "human" ? "Ser humano" : notHuman();
@@ -60,9 +59,9 @@ const CharacterCard = (props) => {
         title={`Foto de ${props.wizard.name}`}
       />
       <h3 className="card-info__title">{props.wizard.name}</h3>
-      <p className="card-info__species">
-        {getSpecies()} </p>
-        <p className="card-info__ancestry">{props.wizard.ancestry !== '' ? getAncestry() : "Sin ascendencia"}
+      <p className="card-info__species">{getSpecies()} </p>
+      <p className="card-info__ancestry">
+        {props.wizard.ancestry !== "" ? getAncestry() : "Sin ascendencia"}
       </p>
     </Link>
   );

@@ -1,4 +1,11 @@
 .main {
+  .error-message {
+    margin: 10%;
+    text-align: center;
+    color: $ndColor;
+    font-family: $altFont;
+    font-size: 3rem;
+  }
   .search-section {
     width: 100%;
     padding: 1%;
@@ -66,6 +73,7 @@
           color: $altColor;
         }
         &__select {
+          cursor: pointer;
           font-family: $stFont;
           border-radius: 50px;
           width: 100px;
@@ -77,6 +85,8 @@
           box-shadow: 3px 3px $altColor;
           &--option {
             font-family: $stFont;
+            background-color: $ndColor;
+            font-size: 0.9rem;
           }
         }
       }
@@ -95,6 +105,7 @@
           color: $altColor;
         }
         &__select {
+          cursor: pointer;
           font-family: $stFont;
           border-radius: 50px;
           width: 150px;
@@ -106,14 +117,17 @@
           box-shadow: 3px 3px $altColor;
           &--option {
             font-family: $stFont;
+            background-color: $ndColor;
+            font-size: 0.9rem;
           }
         }
       }
     }
     &__reset-btn {
+      cursor: pointer;
       border-radius: 50px;
       padding: 6px 4px 4px;
-      font-size: .8rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
       font-family: $altFont;
       background-color: $altColor;
@@ -157,17 +171,20 @@
             text-align: center;
             margin-bottom: 5px;
             color: $rdColor;
+            background-color: $ndColor;
           }
           &__species {
             font-family: $stFont;
             font-size: 1rem;
             color: $rdColor;
+            background-color: transparent;
           }
           &__ancestry {
             font-family: $stFont;
             font-size: 1rem;
             margin-bottom: 5px;
             color: $rdColor;
+            background-color: transparent;
           }
         }
       }

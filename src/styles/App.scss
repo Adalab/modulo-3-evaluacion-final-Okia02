@@ -1,15 +1,7 @@
-@import './components/reset';
-@import './components/variables';
-@import './components/global';
-@import './layout/header';
-@import './layout/main';
-@import './layout/footer';
-
-
-.img {
-    height: 200px;
-}
-.img_house{
-    width: 30px;
-    transform: rotate(90deg);
-}
+@import "./components/reset";
+@import "./components/variables";
+@import "./components/global";
+@import "./layout/header";
+@import "./layout/detail";
+@import "./layout/main";
+@import "./layout/footer";

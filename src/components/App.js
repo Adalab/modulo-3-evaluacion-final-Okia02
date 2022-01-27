@@ -1,15 +1,13 @@
 import "../styles/App.scss";
 import { useEffect, useState } from "react";
+import { Route, Switch } from "react-router-dom";
 import getWizardData from "../services/getWizardData";
+import ls from "../services/ls";
+import Header from "./Header";
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
-import ls from "../services/ls";
-import { Route, Switch } from "react-router-dom";
-import Header from "./Header";
 import Footer from "./Footer";
-
-
 function App() {
   const [wizards, setWizards] = useState(ls.get("wizards", []));
   const [filterName, setFilterName] = useState(ls.get("filterName", ""));
@@ -66,7 +64,7 @@ function App() {
   };
   const searchResults = () => {
     if (filterName !== "" && filteredWizards.length === 0) {
-      return <p>No conocemos a {filterName} 😅</p>;
+      return <p className="error-message">No conocemos a {filterName} 😅</p>;
     } else {
       return <CharacterList wizards={filteredWizards} />;
     }
@@ -75,7 +73,6 @@ function App() {
     setFilterName("");
     setFilterHouse("Gryffindor");
     setFilterAncestry("");
-    
   };
   return (
     <div className="app">
@@ -91,7 +88,6 @@ function App() {
               filterAncestry={filterAncestry}
               resetInputs={resetInputs}
             />
-
             {searchResults()}
           </Route>
           <Route path="/character/:wizardId" render={renderDetail} />
@@ -101,5 +97,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

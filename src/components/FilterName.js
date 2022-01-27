@@ -5,12 +5,13 @@ const FilterName = (props) => {
       value: ev.currentTarget.value,
     });
   };
-
   return (
     <fieldset className="filterName">
-      <label className="filterName__label" htmlFor="name">Personaje:</label>
+      <label className="filterName__label" htmlFor="name">
+        Personaje:
+      </label>
       <input
-      className="filterName__input"
+        className="filterName__input"
         type="search"
         name="name"
         id="name"

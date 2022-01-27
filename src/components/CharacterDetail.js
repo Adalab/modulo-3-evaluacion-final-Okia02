@@ -15,20 +15,20 @@ const CharacterDetail = (props) => {
   const getAncestry = () => {
     if (props.wizard.ancestry === "pure-blood") {
       return (
-        <li>
-          Ascendencia: Sangre pura <FontAwesomeIcon icon={faHatWizard} />
+        <li className='detail__info--element'>
+          Ascendencia: Sangre pura <FontAwesomeIcon className='icon' icon={faHatWizard} />
         </li>
       );
     } else if (props.wizard.ancestry === "half-blood") {
       return (
-        <li>
-          Ascendencia: Mestizaje <FontAwesomeIcon icon={faStarHalfAlt} />
+        <li className='detail__info--element'>
+          Ascendencia: Mestizaje <FontAwesomeIcon className='icon' icon={faStarHalfAlt} />
         </li>
       );
     } else if (props.wizard.ancestry === "muggleborn") {
       return (
-        <li>
-          Ascendencia: Padres muggle <FontAwesomeIcon icon={faGlobeAmericas} />
+        <li className='detail__info--element'>
+          Ascendencia: Padres muggle <FontAwesomeIcon className='icon' icon={faGlobeAmericas} />
         </li>
       );
     } else if (props.wizard.ancestry === "") {
@@ -37,8 +37,8 @@ const CharacterDetail = (props) => {
   };
   const getSpecies = () => {
     return props.wizard.species === "human" ? (
-      <li>
-        Especie: Ser humano <FontAwesomeIcon icon={faUserAlt} />
+      <li className='detail__info--element'>
+        Especie: Ser humano <FontAwesomeIcon className='icon' icon={faUserAlt} />
       </li>
     ) : (
       notHuman()
@@ -47,98 +47,98 @@ const CharacterDetail = (props) => {
   const notHuman = () => {
     if (props.wizard.species === "half-giant") {
       return (
-        <li>
-          Especie: Semi-gigante <FontAwesomeIcon icon={faUserAltSlash} />
+        <li className='detail__info--element'>
+          Especie: Semi-gigante <FontAwesomeIcon className='icon' icon={faUserAltSlash} />
         </li>
       );
     } else if (props.wizard.species === "werewolf") {
       return (
-        <li>
-          Especie: Hombre-lobo <FontAwesomeIcon icon={faUserAltSlash} />
+        <li className='detail__info--element'>
+          Especie: Hombre-lobo <FontAwesomeIcon className='icon' icon={faUserAltSlash} />
         </li>
       );
     } else if (props.wizard.species === "cat") {
       return (
-        <li>
-          Especie: Felino <FontAwesomeIcon icon={faUserAltSlash} />
+        <li className='detail__info--element'>
+          Especie: Felino <FontAwesomeIcon className='icon' icon={faUserAltSlash} />
         </li>
       );
     } else if (props.wizard.species === "goblin") {
       return (
-        <li>
-          Especie: Duende <FontAwesomeIcon icon={faUserAltSlash} />
+        <li className='detail__info--element'>
+          Especie: Duende <FontAwesomeIcon className='icon' icon={faUserAltSlash} />
         </li>
       );
     } else if (props.wizard.species === "owl") {
       return (
-        <li>
-          Especie: Lechuza <FontAwesomeIcon icon={faUserAltSlash} />
+        <li className='detail__info--element'>
+          Especie: Lechuza <FontAwesomeIcon className='icon' icon={faUserAltSlash} />
         </li>
       );
     } else if (props.wizard.species === "ghost") {
       return (
-        <li>
-          Especie: Fantasma <FontAwesomeIcon icon={faUserAltSlash} />
+        <li className='detail__info--element'>
+          Especie: Fantasma <FontAwesomeIcon className='icon' icon={faUserAltSlash} />
         </li>
       );
     } else if (props.wizard.species === "poltergeist") {
       return (
-        <li>
-          Especie: poltergeist <FontAwesomeIcon icon={faUserAltSlash} />
+        <li className='detail__info--element'>
+          Especie: poltergeist <FontAwesomeIcon className='icon' icon={faUserAltSlash} />
         </li>
       );
     } else if (props.wizard.species === "three-headed dog") {
       return (
-        <li>
-          Especie: Cancerbero <FontAwesomeIcon icon={faUserAltSlash} />
+        <li className='detail__info--element'>
+          Especie: Cancerbero <FontAwesomeIcon className='icon' icon={faUserAltSlash} />
         </li>
       );
     } else if (props.wizard.species === "dragon") {
       return (
-        <li>
-          Especie: Dragón <FontAwesomeIcon icon={faUserAltSlash} />
+        <li className='detail__info--element'>
+          Especie: Dragón <FontAwesomeIcon className='icon' icon={faUserAltSlash} />
         </li>
       );
     } else if (props.wizard.species === "centaur") {
       return (
-        <li>
-          Especie: Centauro <FontAwesomeIcon icon={faUserAltSlash} />
+        <li className='detail__info--element'>
+          Especie: Centauro <FontAwesomeIcon className='icon' icon={faUserAltSlash} />
         </li>
       );
     } else if (props.wizard.species === "house-elf") {
       return (
-        <li>
-          Especie: Elfo doméstico <FontAwesomeIcon icon={faUserAltSlash} />
+        <li className='detail__info--element'>
+          Especie: Elfo doméstico <FontAwesomeIcon className='icon' icon={faUserAltSlash} />
         </li>
       );
     } else if (props.wizard.species === "acromantula") {
       return (
-        <li>
-          Especie: Acromántula <FontAwesomeIcon icon={faUserAltSlash} />
+        <li className='detail__info--element'>
+          Especie: Acromántula <FontAwesomeIcon className='icon' icon={faUserAltSlash} />
         </li>
       );
     } else if (props.wizard.species === "hippogriff") {
       return (
-        <li>
-          Especie: Hipogrifo <FontAwesomeIcon icon={faUserAltSlash} />
+        <li className='detail__info--element'>
+          Especie: Hipogrifo <FontAwesomeIcon className='icon' icon={faUserAltSlash} />
         </li>
       );
     } else if (props.wizard.species === "giant") {
       return (
-        <li>
-          Especie: Gigante <FontAwesomeIcon icon={faUserAltSlash} />
+        <li className='detail__info--element'>
+          Especie: Gigante <FontAwesomeIcon className='icon' icon={faUserAltSlash} />
         </li>
       );
     } else if (props.wizard.species === "vampire") {
       return (
-        <li>
-          Especie: Vampiro <FontAwesomeIcon icon={faUserAltSlash} />
+        <li className='detail__info--element'>
+          Especie: Vampiro <FontAwesomeIcon className='icon' icon={faUserAltSlash} />
         </li>
       );
     } else if (props.wizard.species === "half-human") {
       return (
-        <li>
-          Especie: Semiveela <FontAwesomeIcon icon={faUserAltSlash} />
+        <li className='detail__info--element'>
+          Especie: Semiveela <FontAwesomeIcon className='icon' icon={faUserAltSlash} />
         </li>
       );
     }
@@ -147,26 +147,26 @@ const CharacterDetail = (props) => {
   const getStatus = () => {
     if (props.wizard.status && props.wizard.gender === "female") {
       return (
-        <li>
-          Estatus: Viva <FontAwesomeIcon icon={faHeartbeat} />
+        <li className='detail__info--element'>
+          Estatus: Viva <FontAwesomeIcon className='icon' icon={faHeartbeat} />
         </li>
       );
     } else if (!props.wizard.status && props.wizard.gender === "female") {
       return (
-        <li>
-          Estatus: Muerta <FontAwesomeIcon icon={faSkull} />
+        <li className='detail__info--element'>
+          Estatus: Muerta <FontAwesomeIcon className='icon' icon={faSkull} />
         </li>
       );
     } else if (props.wizard.status && props.wizard.gender === "male") {
       return (
-        <li>
-          Estatus: Vivo <FontAwesomeIcon icon={faHeartbeat} />
+        <li className='detail__info--element'>
+          Estatus: Vivo <FontAwesomeIcon className='icon' icon={faHeartbeat} />
         </li>
       );
     } else if (!props.wizard.status && props.wizard.gender === "male") {
       return (
-        <li>
-          Estatus: Muerto <FontAwesomeIcon icon={faSkull} />
+        <li className='detail__info--element'>
+          Estatus: Muerto <FontAwesomeIcon className='icon' icon={faSkull} />
         </li>
       );
     }
@@ -175,7 +175,7 @@ const CharacterDetail = (props) => {
   const getHouse = () => {
     if (props.wizard.house === "Gryffindor") {
       return (
-        <li>
+        <li className='detail__info--element'>
           Casa: Gryffindor
           <img
             className="img_house"
@@ -187,7 +187,7 @@ const CharacterDetail = (props) => {
       );
     } else if (props.wizard.house === "Slytherin") {
       return (
-        <li>
+        <li className='detail__info--element'>
           Casa: Slytherin
           <img
             className="img_house"
@@ -199,7 +199,7 @@ const CharacterDetail = (props) => {
       );
     } else if (props.wizard.house === "Ravenclaw") {
       return (
-        <li>
+        <li className='detail__info--element'>
           Casa: Ravenclaw
           <img
             className="img_house"
@@ -211,7 +211,7 @@ const CharacterDetail = (props) => {
       );
     } else if (props.wizard.house === "Hufflepuff") {
       return (
-        <li>
+        <li className='detail__info--element'>
           Casa: Hufflepuff
           <img
             className="img_house"
@@ -225,28 +225,28 @@ const CharacterDetail = (props) => {
   };
   const getOtherNames = () => {
     if (props.wizard.otherName.length !== 0) {
-      return <li>Sobrenombre: {props.wizard.otherName[0]}</li>;
+      return <li className='detail__info--element'>Sobrenombre: {props.wizard.otherName[0]}</li>;
     }
   };
   const getGender = () => {
     return props.wizard.gender === "female" ? (
-      <li>
-        Género: <FontAwesomeIcon icon={faVenus} />
+      <li className='detail__info--element'>
+        Género: <FontAwesomeIcon className='icon' icon={faVenus} />
       </li>
     ) : (
-      <li>
-        Género: <FontAwesomeIcon icon={faMars} />
+      <li className='detail__info--element'>
+        Género: <FontAwesomeIcon className='icon' icon={faMars} />
       </li>
     );
   };
 
   return (
-    <article>
-      <Link to="/">
-        <FontAwesomeIcon icon={faChevronLeft} /> Volver
+    <article className="detail">
+      <Link className="detail__link" to="/">
+        <FontAwesomeIcon className='detail__link--icon'  icon={faChevronLeft} /> Volver
       </Link>
       <img
-        className="img"
+        className="detail__img"
         src={
           props.wizard.image ||
           "https://data.whicdn.com/images/296298377/original.png"
@@ -254,8 +254,8 @@ const CharacterDetail = (props) => {
         alt={`Foto de ${props.wizard.name}`}
         title={`Foto de ${props.wizard.name}`}
       />
-      <h3>{props.wizard.name}</h3>
-      <ul>
+      <h3 className="detail__title">{props.wizard.name}</h3>
+      <ul className="detail__info">
         {getOtherNames()}
         {getStatus()}
         {getSpecies()}

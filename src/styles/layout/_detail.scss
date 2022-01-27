@@ -1,0 +1,72 @@
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-family: $stFont;
+  background-color: $altColor;
+  &__link {
+    margin: 2% auto;
+    text-decoration: none;
+    font-size: 1rem;
+    border: 2px solid $altColor;
+    padding: 8px 15px;
+    border-radius: 50px;
+    background-color: $stColor;
+    color: $altColor;
+    font-weight: 600;
+    @media all and (min-width: 1200px) {
+      margin: 1% auto;
+    }
+    &--icon {
+      margin-right: 5px;
+      background-color: $stColor;
+    }
+  }
+  &__img {
+    height: 250px;
+    margin: 0% auto 2%;
+    border-radius: 25px;
+    box-shadow: 8px 8px $stColor;
+    @media all and (min-width: 1200px) {
+      margin: 0% auto 1%;
+    }
+    @media all and (max-width: 640px) {
+      height: 200px;
+    }
+  }
+  &__title {
+    margin: 0% auto 2%;
+    font-family: $altFont;
+    font-size: 3rem;
+    background-color: $altColor;
+    @media all and (min-width: 1200px) {
+      margin: 0% auto 1%;
+    }
+    @media all and (max-width: 640px) {
+      margin: 1% auto 0;
+    }
+  }
+  &__info {
+    text-align: center;
+    font-family: $altFont;
+    font-size: 2rem;
+    padding-bottom: 90px;
+    background-color: $altColor;
+    @media all and (max-width: 640px) {
+      padding-bottom: 40px;
+    }
+    .img_house {
+      width: 30px;
+      height: 20px;
+      margin-left: 10px;
+    }
+    &--element {
+      background-color: $altColor;
+      .icon {
+        background-color: $altColor;
+      }
+    }
+  }
+}
