@@ -13,6 +13,7 @@ const getWizardData = () => {
           house: wizard.house,
           id: wizard.name.replace(/\s+/g, "-") + index,
           ancestry: wizard.ancestry,
+          student: wizard.hogwartsStudent,
         };
       });
     });

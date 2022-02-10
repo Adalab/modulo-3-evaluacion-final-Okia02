@@ -2,6 +2,7 @@ import FilterHouse from "./FilterHouse";
 import FilterName from "./FilterName";
 import FilterAncestry from "./FilterAncestry";
 import ResetBtn from "./ResetBtn";
+import FilterStudent from "./FilterStudent";
 const Filters = (props) => {
   return (
     <section className="search-section">
@@ -18,6 +19,10 @@ const Filters = (props) => {
         <FilterAncestry
           handleFilter={props.handleFilter}
           filterAncestry={props.filterAncestry}
+        />
+        <FilterStudent
+          handleFilter={props.handleFilter}
+          filterStudent={props.filterStudent}
         />
         <ResetBtn resetInputs={props.resetInputs} />
       </form>

@@ -17,6 +17,10 @@ function App() {
   const [filterAncestry, setFilterAncestry] = useState(
     ls.get("filterAncestry", "")
   );
+  const [filterStudent, setFilterStudent] = useState(
+    ls.get("filterStudent", false)
+  );
+
   useEffect(() => {
     if (wizards.length === 0) {
       getWizardData().then((data) => {
@@ -29,7 +33,8 @@ function App() {
     ls.set("filterName", filterName);
     ls.set("filterHouse", filterHouse);
     ls.set("filterAncestry", filterAncestry);
-  }, [wizards, filterName, filterHouse, filterAncestry]);
+    ls.set("filterStudent", filterStudent);
+  }, [wizards, filterName, filterHouse, filterAncestry, filterStudent]);
   const handleFilter = (data) => {
     if (data.key === "name") {
       setFilterName(data.value);
@@ -37,6 +42,8 @@ function App() {
       setFilterHouse(data.value);
     } else if (data.key === "ancestry") {
       setFilterAncestry(data.value);
+    } else if (data.key === "student") {
+      setFilterStudent(data.value);
     }
   };
   const handleSubmit = (ev) => {
@@ -56,7 +63,11 @@ function App() {
       } else {
         return wizard.ancestry === filterAncestry;
       }
-    });
+    })
+    .filter((wizard) => wizard.student? filterStudent : wizards);
+
+
+
   const renderDetail = (props) => {
     const routeId = props.match.params.wizardId;
     const foundCharacter = wizards.find((wizard) => wizard.id === routeId);
@@ -86,6 +97,7 @@ function App() {
               filterName={filterName}
               filterHouse={filterHouse}
               filterAncestry={filterAncestry}
+              filterStudent={filterStudent}
               resetInputs={resetInputs}
             />
             {searchResults()}
